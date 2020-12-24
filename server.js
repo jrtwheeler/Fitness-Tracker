@@ -13,12 +13,6 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
-/**
- * app.get("/"):index.html
- * app.get("/index.html"):index.html
- * app.get("/exercise.html"):exercise.html
- * app.get("/exercise.js"):exercise.js
- */
 
 //Connect to mongodb on host environment or local environment
 // =============================================================
@@ -29,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 //Require html and API routes
 // =============================================================
-// require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/publicRoutes")(app);
 
 //Listener
