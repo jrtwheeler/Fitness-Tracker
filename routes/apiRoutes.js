@@ -9,6 +9,7 @@ router.post("/api/workouts", ({ body }, res) => {
       res.json(dbWorkout);
     })
     .catch(err => {
+      console.log("Error Starts Here")
       res.status(400).json(err);
     });
 });
