@@ -1,15 +1,13 @@
 const Workout = require("../models/workout");
 
 module.exports = {
-    findAll: (req, res) => {
-        Workout.find({})
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-            .catch(err => {
-                console.log("Error Starts Here")
-                res.status(400).json(err);
-            });
+    findAll: async (req, res) => {
+        try {
+            const dbWorkout = await Workout.find({})
+            res.json(dbWorkout);
+        } catch (error) {
+            res.sendStatus(500)
+        }
     },
     create: async ({ body }, res) => {
         try {
