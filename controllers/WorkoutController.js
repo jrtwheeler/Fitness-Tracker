@@ -12,14 +12,6 @@ module.exports = {
             });
     },
     create: async ({ body }, res) => {
-        // Workout.create(body)
-        //     .then(dbWorkout => {
-        //         res.json(dbWorkout);
-        //     })
-        //     .catch(err => {
-        //         console.log("Error Starts Here")
-        //         res.status(400).json(err);
-        //     });
         try {
             const dbWorkout = await Workout.create(body)
             res.json(dbWorkout)
